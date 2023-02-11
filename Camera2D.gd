@@ -2,9 +2,9 @@ extends Camera2D
 
 @export var scroll_threshold := 100
 @export var scroll_step := 150
+
 @onready var viewport_size = get_viewport().size
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().root.connect("size_changed", _on_viewport_size_change)
 
@@ -13,7 +13,7 @@ func _on_viewport_size_change():
 	print("Viewport size changed!")
 	viewport_size = get_viewport().size
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	var local_mouse_pos = get_local_mouse_position()
 	if Globals.mouse_in_viewport:
